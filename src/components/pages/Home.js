@@ -12,11 +12,9 @@ const Home = () => {
       //   setAlert('Please enter something', 'warning');
     } else {
       console.log(zip.current.value);
-      window.location.href = `/markets/${
-        +radius.current.value === 0
-          ? zip.current.value
-          : zip.current.value + '/' + radius.current.value
-      }`;
+      window.location.href = `/markets/${zip.current.value +
+        '/' +
+        radius.current.value}`;
       // search
       //   githubContext.searchUsers(text);
     }
@@ -41,6 +39,7 @@ const Home = () => {
             type='number'
             className='form-control col-md-4'
             required
+            placeholder='12210'
             ref={zip}
             style={{
               backgroundColor: 'white',
@@ -57,11 +56,11 @@ const Home = () => {
                 backgroundColor: 'white',
                 border: '1px solid lightgray'
               }}>
-              <option>15</option>
-              <option>0</option>
-              <option>5</option>
-              <option>10</option>
-              <option>20</option>
+              <option value='0'>0 miles</option>
+              <option value='5'>5 miles</option>
+              <option value='10'>10 miles</option>
+              <option value='15'>15 miles</option>
+              <option value='20'>20 miles</option>
             </select>
           </div>
         </div>

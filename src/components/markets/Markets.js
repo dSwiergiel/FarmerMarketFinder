@@ -36,7 +36,9 @@ const Markets = ({
     <div>
       <div>
         <h2 className='mt-5 mb-4'>Farmers' Markets nearby </h2>
-        <h4 className='mb-4'>Refine your search</h4>
+        <h4 className='mb-4'>
+          <i className='fas fa-sliders-h mr-2'></i>Refine your search
+        </h4>
         <div className='row mb-5'>
           <div className='col-md-3'>
             <div className='custom-control custom-checkbox'>
