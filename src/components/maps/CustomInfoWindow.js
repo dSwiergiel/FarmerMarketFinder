@@ -39,6 +39,16 @@ const CustomInfoWindow = ({ market, clusterer, i, position }) => {
               {market.address_line_1} {market.county}, {market.state}{' '}
               {market.zip}
             </p>
+
+            <a
+              className=''
+              href={`https://www.google.com/maps/search/?api=1&query=${market.market_name
+                .split(' ')
+                .join('+')}`}
+              target='_blank'
+              rel='noopener noreferrer'>
+              View on Google Maps
+            </a>
           </div>
         </InfoWindow>
       )}

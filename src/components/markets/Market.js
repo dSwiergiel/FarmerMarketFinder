@@ -139,9 +139,9 @@ const Market = ({ market: { market, loading }, match, getMarket }) => {
     </div>
   );
 };
-// Market.propTypes = {
-//   market: PropTypes.object.isRequired
-// };
+Market.propTypes = {
+  market: PropTypes.object.isRequired
+};
 
 const mapStateToProps = state => ({
   market: state.market

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import zipcodes from 'zipcodes';
-
+import distFrom from 'distance-from';
 import {
   GET_MARKETS,
   GET_MARKET,
@@ -13,7 +13,6 @@ export const getMarkets = (zip, radius) => async dispatch => {
   try {
     setLoading();
     if (+radius !== 0) {
-      console.log('is not 0', radius);
       // get all zipcodes within radius then map them to an array of api call strings for each zip
       const apiURLs = zipcodes
         .radius(zip, +radius)
@@ -26,6 +25,26 @@ export const getMarkets = (zip, radius) => async dispatch => {
           // flatten array to one array will all farms
           var data = [].concat(...res.map(x => x.data));
 
+          data = data
+            .map(market => {
+              const zipInfo = zipcodes.lookup(zip);
+              // Use format of [lat, lng]
+              const viewport = [+zipInfo.latitude, +zipInfo.longitude];
+              const farm = [+market.latitude, +market.longitude];
+
+              // defaults to kilometers if no units put in
+              const distance = distFrom(viewport)
+                .to(farm)
+                .in('mi')
+                .toFixed(2);
+
+              // return copy of market object(via spread operator) with distance included
+              return { ...market, distance: distance };
+            })
+            .sort(function(a, b) {
+              return a.distance - b.distance;
+            });
+
           dispatch({
             type: GET_MARKETS,
             payload: data
@@ -37,9 +56,29 @@ export const getMarkets = (zip, radius) => async dispatch => {
         `http://data.ny.gov/resource/qq4h-8p86.json?zip=${zip}`
       );
 
+      const data = res.data
+        .map(market => {
+          const zipInfo = zipcodes.lookup(zip);
+          // Use format of [lat, lng]
+          const viewport = [+zipInfo.latitude, +zipInfo.longitude];
+          const farm = [+market.latitude, +market.longitude];
+
+          // defaults to kilometers if no units put in
+          const distance = distFrom(viewport)
+            .to(farm)
+            .in('mi')
+            .toFixed(2);
+
+          // return copy of market object(via spread operator) with distance included
+          return { ...market, distance: distance };
+        })
+        .sort(function(a, b) {
+          return a.distance - b.distance;
+        });
+
       dispatch({
         type: GET_MARKETS,
-        payload: res.data
+        payload: data
       });
     }
   } catch (err) {

@@ -1,22 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import zipcodes from 'zipcodes';
-import distFrom from 'distance-from';
 
 const MarketItem = ({ market, index, zip }) => {
   // const zip = market.zip;
-
-  const zipInfo = zipcodes.lookup(zip);
-  // Use format of [lat, lng]
-  const viewport = [+zipInfo.latitude, +zipInfo.longitude];
-  const farm = [+market.latitude, +market.longitude];
-
-  // defaults to kilometers if no units put in
-  const distance = distFrom(viewport)
-    .to(farm)
-    .in('mi')
-    .toFixed(2);
 
   return (
     <div>
@@ -38,7 +25,7 @@ const MarketItem = ({ market, index, zip }) => {
               </p>
 
               <p className='h5 card-link  align-text-bottom  mb-0 d-inline-block'>
-                {distance} miles away
+                {market.distance} miles away
               </p>
             </div>
 

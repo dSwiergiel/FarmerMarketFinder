@@ -1,12 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import config from '../../config';
-import {
-  GoogleMap,
-  LoadScript,
-  MarkerClusterer,
-  InfoWindow,
-  Marker
-} from '@react-google-maps/api';
+import { GoogleMap, LoadScript, MarkerClusterer } from '@react-google-maps/api';
 import CustomInfoWindow2 from './CustomInfoWindow';
 
 export const Map = ({ markets, height, width }) => {
