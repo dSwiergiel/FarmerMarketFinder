@@ -25,9 +25,10 @@ export const getMarkets = (zip, radius) => async dispatch => {
           // flatten array to one array will all farms
           var data = [].concat(...res.map(x => x.data));
 
+          const zipInfo = zipcodes.lookup(zip);
+
           data = data
             .map(market => {
-              const zipInfo = zipcodes.lookup(zip);
               // Use format of [lat, lng]
               const viewport = [+zipInfo.latitude, +zipInfo.longitude];
               const farm = [+market.latitude, +market.longitude];
@@ -55,10 +56,10 @@ export const getMarkets = (zip, radius) => async dispatch => {
       const res = await axios.get(
         `http://data.ny.gov/resource/qq4h-8p86.json?zip=${zip}`
       );
+      const zipInfo = zipcodes.lookup(zip);
 
       const data = res.data
         .map(market => {
-          const zipInfo = zipcodes.lookup(zip);
           // Use format of [lat, lng]
           const viewport = [+zipInfo.latitude, +zipInfo.longitude];
           const farm = [+market.latitude, +market.longitude];

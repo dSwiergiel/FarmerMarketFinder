@@ -120,20 +120,20 @@ const Market = ({ market: { market, loading }, match, getMarket }) => {
           </h3>
         </div>
         <div className='col-md-12 mt-4 mb-4'>
-          <h3>
-            Website:{' '}
-            <span className='text-muted'>
-              {' '}
-              {market.market_link !== undefined && (
+          {market.market_link !== undefined && (
+            <h3>
+              Website:{' '}
+              <span className='text-muted'>
+                {' '}
                 <a
                   href={market.market_link.url}
                   target='_blank'
                   rel='noopener noreferrer'>
                   {market.market_link.url}
                 </a>
-              )}
-            </span>
-          </h3>
+              </span>
+            </h3>
+          )}
         </div>
       </div>
     </div>
