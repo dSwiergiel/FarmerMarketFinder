@@ -17,7 +17,8 @@ export const getMarkets = (zip, radius) => async dispatch => {
       const apiURLs = zipcodes
         .radius(zip, +radius)
         .map(
-          zipcode => `http://data.ny.gov/resource/qq4h-8p86.json?zip=${zipcode}`
+          zipcode =>
+            `https://data.ny.gov/resource/qq4h-8p86.json?zip=${zipcode}`
         );
 
       axios.all(apiURLs.map(apiURL => axios.get(apiURL))).then(
@@ -33,7 +34,7 @@ export const getMarkets = (zip, radius) => async dispatch => {
       );
     } else {
       const res = await axios.get(
-        `http://data.ny.gov/resource/qq4h-8p86.json?zip=${zip}`
+        `https://data.ny.gov/resource/qq4h-8p86.json?zip=${zip}`
       );
 
       dispatch({
@@ -55,7 +56,7 @@ export const getMarket = marketName => async dispatch => {
     setLoading();
 
     const res = await axios.get(
-      `http://data.ny.gov/resource/qq4h-8p86.json?market_name=${marketName}`
+      `https://data.ny.gov/resource/qq4h-8p86.json?market_name=${marketName}`
     );
     dispatch({
       type: GET_MARKET,
