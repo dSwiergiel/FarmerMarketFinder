@@ -40,6 +40,7 @@ const Home = () => {
             className='form-control col-md-4'
             required
             placeholder='12210'
+            max='99999'
             ref={zip}
             style={{
               backgroundColor: 'white',
@@ -57,7 +58,9 @@ const Home = () => {
                 border: '1px solid lightgray'
               }}>
               <option value='0'>0 miles</option>
-              <option value='5'>5 miles</option>
+              <option selected value='5'>
+                5 miles
+              </option>
               <option value='10'>10 miles</option>
               <option value='15'>15 miles</option>
               <option value='20'>20 miles</option>
