@@ -1,23 +1,35 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const zip = useRef('');
-  const radius = useRef(15);
+  const [info, setInfo] = useState({ zip: 12210, radius: 10 });
+
+  // const zip = useRef('');
+  // const radius = useRef(15);
+
+  const onInputChange = e => {
+    setInfo({ ...info, zip: e.currentTarget.value });
+  };
+
+  const onSelectChange = e => {
+    setInfo({ ...info, radius: e.currentTarget.value });
+  };
 
   const onSubmit = e => {
     e.preventDefault();
 
-    console.log(radius.current.value);
-    if (zip === '') {
-      //   setAlert('Please enter something', 'warning');
-    } else {
-      console.log(zip.current.value);
-      window.location.href = `/markets/${zip.current.value +
-        '/' +
-        radius.current.value}`;
-      // search
-      //   githubContext.searchUsers(text);
-    }
+    // setInfo({zip: e.})
+    // console.log(radius.current.value);
+    // if (zip === '') {
+    //   setAlert('Please enter something', 'warning');
+    // } else {
+    // console.log(zip.current.value);
+    // window.location.href = `/markets/${zip.current.value +
+    //   '/' +
+    //   radius.current.value}`;
+    // search
+    //   githubContext.searchUsers(text);
+    // }
   };
 
   return (
@@ -41,7 +53,8 @@ const Home = () => {
             required
             placeholder='12210'
             max='99999'
-            ref={zip}
+            onChange={onInputChange}
+            // ref={zip}
             style={{
               backgroundColor: 'white',
               border: '1px solid lightgray'
@@ -52,15 +65,15 @@ const Home = () => {
             <select
               className='form-control'
               id='exampleSelect1'
-              ref={radius}
+              // ref={radius}
+              onChange={onSelectChange}
+              value={info.radius}
               style={{
                 backgroundColor: 'white',
                 border: '1px solid lightgray'
               }}>
               <option value='0'>0 miles</option>
-              <option selected value='5'>
-                5 miles
-              </option>
+              <option value='5'>5 miles</option>
               <option value='10'>10 miles</option>
               <option value='15'>15 miles</option>
               <option value='20'>20 miles</option>
@@ -68,9 +81,14 @@ const Home = () => {
           </div>
         </div>
         <div className='row'>
-          <button className='btn btn-primary  mx-auto mt-5 h2'>
+          {/* <button className='btn btn-primary  mx-auto mt-5 h2'>
             FIND FARMERS' MARKETS
-          </button>
+          </button> */}
+          <Link
+            className='btn btn-primary  mx-auto mt-5 h2'
+            to={`/markets/${info.zip}/${info.radius}`}>
+            FIND FARMERS' MARKETS
+          </Link>
         </div>
       </div>
     </form>

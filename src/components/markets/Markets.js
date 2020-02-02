@@ -5,6 +5,7 @@ import { getMarkets, filterMarkets } from '../../actions/marketActions';
 import MarketItem from './MarketItem';
 import Spinner from '../layout/Spinner';
 import Map from '../maps/Map';
+import { useParams } from 'react-router-dom';
 
 const Markets = ({
   market: { markets, loading },
@@ -13,8 +14,9 @@ const Markets = ({
   match,
   filterMarkets
 }) => {
-  const zip = match.params.zip;
-  const radius = match.params.radius;
+  let { zip, radius } = useParams();
+  // const zip = match.params.zip;
+  // const radius = match.params.radius;
   useEffect(() => {
     getMarkets(zip, radius);
 
@@ -115,7 +117,7 @@ const Markets = ({
         <div className='row'>
           <div
             className='col-md-6'
-            style={{ height: '70vh', overflowY: 'auto' }}>
+            style={{ height: '65vh', overflowY: 'auto' }}>
             {(!loading && markets.length === 0) ||
             (filtered !== null && filtered.length === 0) ? (
               <h4 className='text-center'>No markets to show...</h4>
