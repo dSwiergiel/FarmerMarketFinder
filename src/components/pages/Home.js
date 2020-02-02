@@ -71,7 +71,8 @@ const Home = () => {
               style={{
                 backgroundColor: 'white',
                 border: '1px solid lightgray'
-              }}>
+              }}
+            >
               <option value='0'>0 miles</option>
               <option value='5'>5 miles</option>
               <option value='10'>10 miles</option>
@@ -87,7 +88,10 @@ const Home = () => {
           <Link
             className='btn btn-primary  mx-auto mt-5 h2'
             to={`/markets/${info.zip}/${info.radius}`}
-            onKeyPress={() => {console.log('enter') }}>
+            onKeyPress={() => {
+              console.log('enter');
+            }}
+          >
             FIND FARMERS' MARKETS
           </Link>
         </div>
