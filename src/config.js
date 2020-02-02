@@ -1,5 +1,5 @@
 const config = {
-  apiKey: 'AIzaSyAT4JRpB2c5eSvJ0XTqqjnhq_xd2SGiMcY'
+  apiKey: process.env.GOOGLE_MAPS_API_KEY
 };
 
 export default config;
