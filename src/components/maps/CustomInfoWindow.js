@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { InfoWindow, Marker } from '@react-google-maps/api';
+import React, { useState, } from 'react';
+import {Link } from 'react-router-dom'
+ import { InfoWindow, Marker } from '@react-google-maps/api';
 
 const CustomInfoWindow = ({ market, clusterer, i, position }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +25,12 @@ const CustomInfoWindow = ({ market, clusterer, i, position }) => {
           onCloseClick={handleToggleClose}
           clusterer={clusterer}>
           <div className=''>
-            <h6 className='card-title'>{market.market_name}</h6>
+            <h6 className='card-title'>
+            <Link
+              to={`/market/${market.market_name}`}>
+              {market.market_name}
+            </Link>
+              </h6>
             <p className='card-subtitle mb-2 text-muted'>
               {market.market_link !== undefined && (
                 <a

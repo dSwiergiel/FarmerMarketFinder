@@ -86,7 +86,8 @@ const Home = () => {
           </button> */}
           <Link
             className='btn btn-primary  mx-auto mt-5 h2'
-            to={`/markets/${info.zip}/${info.radius}`}>
+            to={`/markets/${info.zip}/${info.radius}`}
+            onKeyPress={() => {console.log('enter') }}>
             FIND FARMERS' MARKETS
           </Link>
         </div>
