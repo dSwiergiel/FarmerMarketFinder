@@ -8,9 +8,10 @@ import Map from '../maps/Map';
 import Spinner from '../layout/Spinner';
 
 const Market = ({ market: { market, loading }, match, getMarket }) => {
-  const marketName = match.params.marketName;
+  const lng = match.params.lng;
+  const lat = match.params.lat;
   useEffect(() => {
-    getMarket(marketName);
+    getMarket(lng, lat);
     //eslint-disable-next-line
   }, []);
   let history = useHistory();

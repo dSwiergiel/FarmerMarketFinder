@@ -103,20 +103,18 @@ const Markets = ({
             </div>
           </div>
         </div>
-        <div className=' mb-1'>
-          <h3 className='pull-right'>
-            <i className='fas fa-map-marker-alt mr-2'></i>Current Location:{' '}
-            {match.params.zip}
-          </h3>
-          <div className='clearfix'></div>
-        </div>
+        <h3 className='pull-right'>
+          <i className='fas fa-map-marker-alt mr-2'></i>Current Location:{' '}
+          {match.params.zip}
+        </h3>
+        <div className='clearfix'></div>
       </div>
       {loading || markets === null ? (
         <Spinner></Spinner>
       ) : (
         <div className='row'>
           <div
-            className='col-md-6'
+            className='col-md-6 mt-3'
             style={{ height: '65vh', overflowY: 'auto' }}>
             {(!loading && markets.length === 0) ||
             (filtered !== null && filtered.length === 0) ? (
@@ -139,7 +137,7 @@ const Markets = ({
               ))
             )}
           </div>
-          <div className='col-md-6'>
+          <div className='col-md-6 mt-3 mb-3'>
             {filtered !== undefined && filtered !== null ? (
               <Map markets={filtered} height={`500px`} width={`100%`}></Map>
             ) : (

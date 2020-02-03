@@ -18,7 +18,7 @@ const App = () => {
             <Route exact path='/' component={Home} />
             <Route exact path='/markets' component={Markets} />
             <Route exact path='/markets/:zip/:radius' component={Markets} />
-            <Route exact path='/market/:marketName' component={Market} />
+            <Route exact path='/market/:lng/:lat' component={Market} />
             <Route component={NotFound} />
           </Switch>
         </div>

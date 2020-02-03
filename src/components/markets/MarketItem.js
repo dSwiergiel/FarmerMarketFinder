@@ -10,8 +10,7 @@ const MarketItem = ({ market, index, zip }) => {
       <div className='card mb-2'>
         <div className='card-body'>
           <h4 className='font-weight-bold mb-4'>
-            <Link
-              to={`/market/${market.market_name}`}>
+            <Link to={`/market/${market.longitude}/${market.latitude}`}>
               {index + 1}. {market.market_name}
             </Link>
           </h4>

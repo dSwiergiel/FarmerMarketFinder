@@ -92,12 +92,12 @@ export const getMarkets = (zip, radius) => async dispatch => {
 };
 
 // Get market info
-export const getMarket = marketName => async dispatch => {
+export const getMarket = (lng, lat) => async dispatch => {
   try {
     setLoading();
 
     const res = await axios.get(
-      `https://data.ny.gov/resource/qq4h-8p86.json?market_name=${marketName}`
+      `https://data.ny.gov/resource/qq4h-8p86.json?longitude=${lng}&latitude=${lat}`
     );
     dispatch({
       type: GET_MARKET,
