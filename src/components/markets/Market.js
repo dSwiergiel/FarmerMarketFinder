@@ -72,7 +72,7 @@ const Market = ({ market: { market, loading }, match, getMarket }) => {
       <div className='row'>
         <div className='col-md-12'>
           <h3>Amenities</h3>
-          <div className='card-text h3 mb-0 mt-4 text-left pl-4'>
+          <div className='card-text h3 mb-0 mt-4 text-left'>
             <div className='d-inline-block mr-5'>
               {market.snap_status === 'Y' ? (
                 <div className='mb-2'>
