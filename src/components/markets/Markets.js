@@ -112,7 +112,7 @@ const Markets = ({
       {loading || markets === null ? (
         <Spinner></Spinner>
       ) : (
-        <div className='row'>
+        <div className='row '>
           <div
             className='col-md-6 mt-3'
             style={{ height: '65vh', overflowY: 'auto' }}>

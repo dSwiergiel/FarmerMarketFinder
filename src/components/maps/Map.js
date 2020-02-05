@@ -18,22 +18,23 @@ export const Map = ({ markets, height, width }) => {
   };
 
   return (
-    <LoadScript id='script-loader' googleMapsApiKey={config.apiKey}>
-      <GoogleMap
-        id='marker-example'
-        mapContainerStyle={mapContainerStyle}
-        zoom={
-          markets.length > 50
-            ? 9
-            : markets.length > 30
-            ? 10
-            : markets.length > 10
-            ? 11
-            : 14
-        }
-        center={center}
-        clickableIcons={true}>
-        {/* <MarkerClusterer>
+    <div className='fadeLoad'>
+      <LoadScript id='script-loader' googleMapsApiKey={config.apiKey}>
+        <GoogleMap
+          id='marker-example'
+          mapContainerStyle={mapContainerStyle}
+          zoom={
+            markets.length > 50
+              ? 9
+              : markets.length > 30
+              ? 10
+              : markets.length > 10
+              ? 11
+              : 14
+          }
+          center={center}
+          clickableIcons={true}>
+          {/* <MarkerClusterer>
           {clusterer =>
             markets.map((market, i) => (
               <Marker
@@ -43,19 +44,20 @@ export const Map = ({ markets, height, width }) => {
             ))
           }
         </MarkerClusterer> */}
-        <MarkerClusterer>
-          {clusterer =>
-            markets.map((market, i) => (
-              <CustomInfoWindow2
-                key={i}
-                position={{ lat: +market.latitude, lng: +market.longitude }}
-                clusterer={clusterer}
-                market={market}></CustomInfoWindow2>
-            ))
-          }
-        </MarkerClusterer>
-      </GoogleMap>
-    </LoadScript>
+          <MarkerClusterer>
+            {clusterer =>
+              markets.map((market, i) => (
+                <CustomInfoWindow2
+                  key={i}
+                  position={{ lat: +market.latitude, lng: +market.longitude }}
+                  clusterer={clusterer}
+                  market={market}></CustomInfoWindow2>
+              ))
+            }
+          </MarkerClusterer>
+        </GoogleMap>
+      </LoadScript>
+    </div>
   );
 };
 

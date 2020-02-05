@@ -21,7 +21,7 @@ const Market = ({ market: { market, loading }, match, getMarket }) => {
   }
 
   return (
-    <div>
+    <div className='fadeLoad'>
       <div className='row'>
         <button className='btn btn-right' onClick={() => history.goBack()}>
           <h5>
@@ -55,86 +55,98 @@ const Market = ({ market: { market, loading }, match, getMarket }) => {
       </div>
       <hr></hr>
       <div className='row'>
-        <div className='col-md-12 mt-4'>
-          <h3>
-            Season:{' '}
-            <span className='text-muted'>{market.operation_season}</span>
-          </h3>
-        </div>
-        <div className='col-md-12 mt-4 mb-4'>
-          <h3>
-            Hours of Operation:{' '}
-            <span className='text-muted'>{market.operation_hours}</span>
-          </h3>
-        </div>
-      </div>
-      <hr></hr>
-      <div className='row'>
-        <div className='col-md-12'>
-          <h3>Amenities</h3>
-          <div className='card-text h3 mb-0 mt-4 text-left'>
-            <div className='d-inline-block mr-5'>
-              {market.snap_status === 'Y' ? (
-                <div className='mb-2'>
-                  <i className='fas fa-check-circle'></i> SNAP
-                </div>
-              ) : (
-                <span></span>
-              )}
-              {market.fmnp === 'Y' ? (
-                <div className='mb-2'>
-                  <i className='fas fa-check-circle'></i> FMNP
-                </div>
-              ) : (
-                <span></span>
-              )}
+        <div className='col-md-8'>
+          <div className='row'>
+            <div className='col-md-12 mt-2'>
+              <h3>
+                Season:{' '}
+                <span className='text-muted'>{market.operation_season}</span>
+              </h3>
             </div>
-            <div className='d-inline-block'>
-              {market.fca === 'Y' ? (
-                <div className='mb-2'>
-                  <i className='fas fa-check-circle'></i> Accepts FCC
+            <div className='col-md-12 mt-2 '>
+              <h3>
+                Hours of Operation:{' '}
+                <span className='text-muted'>{market.operation_hours}</span>
+              </h3>
+            </div>
+          </div>
+          <hr></hr>
+          <div className='row'>
+            <div className='col-md-12'>
+              <h3>Amenities</h3>
+              <div className='card-text h3 mb-0 mt-4 text-left'>
+                <div className='d-inline-block mr-5'>
+                  {market.snap_status === 'Y' ? (
+                    <div className='mb-2'>
+                      <i className='fas fa-check-circle'></i> SNAP
+                    </div>
+                  ) : (
+                    <span></span>
+                  )}
+                  {market.fmnp === 'Y' ? (
+                    <div className='mb-2'>
+                      <i className='fas fa-check-circle'></i> FMNP
+                    </div>
+                  ) : (
+                    <span></span>
+                  )}
                 </div>
-              ) : (
-                <span></span>
-              )}
-              {market.fc === 'Y' ? (
-                <div className='mb-2'>
-                  <i className='fas fa-check-circle'></i> Issues FCC
+                <div className='d-inline-block'>
+                  {market.fca === 'Y' ? (
+                    <div className='mb-2'>
+                      <i className='fas fa-check-circle'></i> Accepts FCC
+                    </div>
+                  ) : (
+                    <span></span>
+                  )}
+                  {market.fc === 'Y' ? (
+                    <div className='mb-2'>
+                      <i className='fas fa-check-circle'></i> Issues FCC
+                    </div>
+                  ) : (
+                    <span></span>
+                  )}
                 </div>
-              ) : (
-                <span></span>
+              </div>
+            </div>
+          </div>
+          <hr></hr>
+          <div className='row'>
+            <div className='col-md-12 mt-2'>
+              <h3>
+                Contact: <span className='text-muted'>{market.contact}</span>
+              </h3>
+            </div>
+            <div className='col-md-12 mt-2 '>
+              <h3>
+                Phone: <span className='text-muted'>{market.phone}</span>
+              </h3>
+            </div>
+            <div className='col-md-12 mt-2 '>
+              {market.market_link !== undefined && (
+                <h3>
+                  Website:{' '}
+                  <span className='text-muted'>
+                    {' '}
+                    <a
+                      href={market.market_link.url}
+                      target='_blank'
+                      rel='noopener noreferrer'>
+                      {market.market_link.url}
+                    </a>
+                  </span>
+                </h3>
               )}
             </div>
           </div>
         </div>
-      </div>
-      <hr></hr>
-      <div className='row'>
-        <div className='col-md-12 mt-4'>
-          <h3>
-            Contact: <span className='text-muted'>{market.contact}</span>
-          </h3>
-        </div>
-        <div className='col-md-12 mt-4 '>
-          <h3>
-            Phone: <span className='text-muted'>{market.phone}</span>
-          </h3>
-        </div>
-        <div className='col-md-12 mt-4 mb-4'>
-          {market.market_link !== undefined && (
-            <h3>
-              Website:{' '}
-              <span className='text-muted'>
-                {' '}
-                <a
-                  href={market.market_link.url}
-                  target='_blank'
-                  rel='noopener noreferrer'>
-                  {market.market_link.url}
-                </a>
-              </span>
-            </h3>
-          )}
+        <div className='col-md-4'>
+          <div
+            style={{
+              backgroundColor: 'rgb(243, 243, 243)',
+              height: '400px',
+              width: '100%'
+            }}></div>
         </div>
       </div>
     </div>
