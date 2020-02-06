@@ -6,7 +6,7 @@ const MarketItem = ({ market, index, zip }) => {
   // const zip = market.zip;
 
   return (
-    <div className='card mb-2 fadeLoad' style={shadow}>
+    <div className='card mb-3 fadeLoad' style={shadow}>
       <div className='card-body'>
         <h4 className='font-weight-bold mb-4'>
           <Link to={`/market/${market.longitude}/${market.latitude}`}>
@@ -56,7 +56,7 @@ const MarketItem = ({ market, index, zip }) => {
   );
 };
 const shadow = {
-  boxShadow: '-10px 5px 10px rgba(0,0,0,.12)'
+  boxShadow: '-5px 5px 10px rgba(0,0,0,.12)'
 };
 MarketItem.propTypes = {
   market: PropTypes.object.isRequired

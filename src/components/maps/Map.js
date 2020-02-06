@@ -34,16 +34,6 @@ export const Map = ({ markets, height, width }) => {
           }
           center={center}
           clickableIcons={true}>
-          {/* <MarkerClusterer>
-          {clusterer =>
-            markets.map((market, i) => (
-              <Marker
-                key={i}
-                position={{ lat: +market.latitude, lng: +market.longitude }}
-                clusterer={clusterer}></Marker>
-            ))
-          }
-        </MarkerClusterer> */}
           <MarkerClusterer>
             {clusterer =>
               markets.map((market, i) => (

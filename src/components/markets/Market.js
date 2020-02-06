@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getMarket } from '../../actions/marketActions';
@@ -75,20 +75,20 @@ const Market = ({ market: { market, loading }, match, getMarket }) => {
             <div className='col-md-12'>
               <h3>Amenities</h3>
               <div className='card-text h3 mb-0 mt-4 text-left'>
-                <div className='d-inline-block mr-5'>
+                <div className='d-inline-block'>
                   {market.snap_status === 'Y' ? (
-                    <div className='mb-2'>
+                    <div className='mb-2  mr-5'>
                       <i className='fas fa-check-circle'></i> SNAP
                     </div>
                   ) : (
-                    <span></span>
+                    <Fragment></Fragment>
                   )}
                   {market.fmnp === 'Y' ? (
-                    <div className='mb-2'>
+                    <div className='mb-2  mr-5'>
                       <i className='fas fa-check-circle'></i> FMNP
                     </div>
                   ) : (
-                    <span></span>
+                    <Fragment></Fragment>
                   )}
                 </div>
                 <div className='d-inline-block'>
@@ -97,14 +97,14 @@ const Market = ({ market: { market, loading }, match, getMarket }) => {
                       <i className='fas fa-check-circle'></i> Accepts FCC
                     </div>
                   ) : (
-                    <span></span>
+                    <Fragment></Fragment>
                   )}
                   {market.fc === 'Y' ? (
                     <div className='mb-2'>
                       <i className='fas fa-check-circle'></i> Issues FCC
                     </div>
                   ) : (
-                    <span></span>
+                    <Fragment></Fragment>
                   )}
                 </div>
               </div>
