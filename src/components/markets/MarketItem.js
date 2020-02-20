@@ -26,7 +26,7 @@ const MarketItem = ({ market, index, zip }) => {
           </div>
 
           <div className='col-xl-3'>
-            <div className='card-text h5 mb-0 mt-4 text-left pl-4'>
+            <div className='card-text h5 mb-0 mt-4 text-left pl-4 pl-0-mobile'>
               {market.snap_status === 'Y' ? (
                 <div className='mb-2'>
                   <i className='fas fa-check-circle'></i> SNAP

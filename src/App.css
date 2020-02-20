@@ -92,3 +92,25 @@ h5 {
     opacity: 1;
   }
 }
+
+@media (max-width: 480px) {
+  p,
+  h3,
+  h4,
+  h5 {
+    font-size: 1em;
+  }
+
+  h1,
+  h2 {
+    font-size: 1.5em;
+  }
+
+  .pl-0-mobile {
+    padding-left: 0px !important;
+  }
+
+  .mobile-label {
+    font-size: 0.8em;
+  }
+}

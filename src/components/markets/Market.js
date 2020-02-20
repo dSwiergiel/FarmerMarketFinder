@@ -77,14 +77,14 @@ const Market = ({ market: { market, loading }, match, getMarket }) => {
               <div className='card-text h3 mb-0 mt-4 text-left'>
                 <div className='d-inline-block'>
                   {market.snap_status === 'Y' ? (
-                    <div className='mb-2  mr-5'>
+                    <div className='mb-2  mr-5 mobile-label'>
                       <i className='fas fa-check-circle'></i> SNAP
                     </div>
                   ) : (
                     <Fragment></Fragment>
                   )}
                   {market.fmnp === 'Y' ? (
-                    <div className='mb-2  mr-5'>
+                    <div className='mb-2  mr-5 mobile-label'>
                       <i className='fas fa-check-circle'></i> FMNP
                     </div>
                   ) : (
@@ -93,14 +93,14 @@ const Market = ({ market: { market, loading }, match, getMarket }) => {
                 </div>
                 <div className='d-inline-block'>
                   {market.fca === 'Y' ? (
-                    <div className='mb-2'>
+                    <div className='mb-2 mobile-label'>
                       <i className='fas fa-check-circle'></i> Accepts FCC
                     </div>
                   ) : (
                     <Fragment></Fragment>
                   )}
                   {market.fc === 'Y' ? (
-                    <div className='mb-2'>
+                    <div className='mb-2 mobile-label'>
                       <i className='fas fa-check-circle'></i> Issues FCC
                     </div>
                   ) : (
@@ -140,14 +140,14 @@ const Market = ({ market: { market, loading }, match, getMarket }) => {
             </div>
           </div>
         </div>
-        <div className='col-md-4'>
+        {/* <div className='col-md-4'>
           <div
             style={{
               backgroundColor: 'rgb(243, 243, 243)',
               height: '400px',
               width: '100%'
             }}></div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
