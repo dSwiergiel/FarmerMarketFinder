@@ -46,10 +46,10 @@ const Market = ({ market: { market, loading }, match, getMarket }) => {
               .join('+')}`}
             target='_blank'
             rel='noopener noreferrer'>
-            <h4>
+            <h3>
               {' '}
               <i className='fas fa-map-marked-alt mr-2'></i> Get Directions
-            </h4>
+            </h3>
           </a>
         </div>
       </div>
@@ -122,7 +122,7 @@ const Market = ({ market: { market, loading }, match, getMarket }) => {
                 Phone: <span className='text-muted'>{market.phone}</span>
               </h3>
             </div>
-            <div className='col-md-12 mt-2 '>
+            <div className='col-md-12 mt-2 mb-3'>
               {market.market_link !== undefined && (
                 <h3>
                   Website:{' '}

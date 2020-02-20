@@ -94,11 +94,9 @@ h5 {
 }
 
 @media (max-width: 480px) {
-  p,
   h3,
-  h4,
   h5 {
-    font-size: 1em;
+    font-size: 1.1em;
   }
 
   h1,
@@ -111,6 +109,6 @@ h5 {
   }
 
   .mobile-label {
-    font-size: 0.8em;
+    font-size: 0.6em;
   }
 }
