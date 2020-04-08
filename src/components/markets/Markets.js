@@ -12,7 +12,7 @@ const Markets = ({
   filtered,
   getMarkets,
   match,
-  filterMarkets
+  filterMarkets,
 }) => {
   let { zip, radius } = useParams();
   // const zip = match.params.zip;
@@ -23,14 +23,14 @@ const Markets = ({
     //eslint-disable-next-line
   }, []);
 
-  const onChange = e => {
+  const onChange = (e) => {
     const checkedBoxes = document.querySelectorAll(
       'input[type=checkbox]:checked'
     );
 
     filterMarkets(
       markets,
-      Array.from(checkedBoxes, x => x.name)
+      Array.from(checkedBoxes, (x) => x.name)
     );
   };
 
@@ -49,10 +49,12 @@ const Markets = ({
                 name='snap_status'
                 onChange={onChange}
                 className='custom-control-input'
-                id='checkbox_SNAP'></input>
+                id='checkbox_SNAP'
+              ></input>
               <label
                 className='custom-control-label h4'
-                htmlFor='checkbox_SNAP'>
+                htmlFor='checkbox_SNAP'
+              >
                 Accepts SNAP
               </label>
             </div>
@@ -64,10 +66,12 @@ const Markets = ({
                 name='fmnp'
                 onChange={onChange}
                 className='custom-control-input'
-                id='checkbox_FMNP'></input>
+                id='checkbox_FMNP'
+              ></input>
               <label
                 className='custom-control-label h4'
-                htmlFor='checkbox_FMNP'>
+                htmlFor='checkbox_FMNP'
+              >
                 Accepts FMNP
               </label>
             </div>
@@ -79,10 +83,12 @@ const Markets = ({
                 name='fca'
                 onChange={onChange}
                 className='custom-control-input'
-                id='checkbox_AcceptsFCC'></input>
+                id='checkbox_AcceptsFCC'
+              ></input>
               <label
                 className='custom-control-label h4'
-                htmlFor='checkbox_AcceptsFCC'>
+                htmlFor='checkbox_AcceptsFCC'
+              >
                 Accepts FCC
               </label>
             </div>
@@ -94,10 +100,12 @@ const Markets = ({
                 name='fc'
                 onChange={onChange}
                 className='custom-control-input'
-                id='checkbox_IssuesFCC'></input>
+                id='checkbox_IssuesFCC'
+              ></input>
               <label
                 className='custom-control-label h4'
-                htmlFor='checkbox_IssuesFCC'>
+                htmlFor='checkbox_IssuesFCC'
+              >
                 Issues FCC
               </label>
             </div>
@@ -113,9 +121,17 @@ const Markets = ({
         <Spinner></Spinner>
       ) : (
         <div className='row '>
+          <div className='col-md-6 order-md-1 order-lg-1 order-xl-1  mt-3 mb-3'>
+            {filtered !== undefined && filtered !== null ? (
+              <Map markets={filtered} height={`500px`} width={`100%`}></Map>
+            ) : (
+              <Map markets={markets} height={`500px`} width={`100%`}></Map>
+            )}
+          </div>
           <div
-            className='col-md-6 mt-3'
-            style={{ height: '65vh', overflowY: 'auto' }}>
+            className='col-md-6 order-md-0 order-lg-0 order-xl-0 mt-3'
+            style={{ height: '65vh', overflowY: 'auto' }}
+          >
             {(!loading && markets.length === 0) ||
             (filtered !== null && filtered.length === 0) ? (
               <h4 className='text-center'>No markets to show...</h4>
@@ -125,7 +141,8 @@ const Markets = ({
                   key={index}
                   market={market}
                   zip={zip}
-                  index={index}></MarketItem>
+                  index={index}
+                ></MarketItem>
               ))
             ) : (
               markets.map((market, index) => (
@@ -133,21 +150,10 @@ const Markets = ({
                   key={index}
                   market={market}
                   zip={zip}
-                  index={index}></MarketItem>
+                  index={index}
+                ></MarketItem>
               ))
             )}
-          </div>
-          <div className='col-md-6 mt-3 mb-3'>
-            {filtered !== undefined && filtered !== null ? (
-              <Map markets={filtered} height={`500px`} width={`100%`}></Map>
-            ) : (
-              <Map markets={markets} height={`500px`} width={`100%`}></Map>
-            )}
-
-            {/* <img
-              src='https://uc.uxpin.com/files/326697/330941/uxpmod_429b71e64a8c419eaee2602f8cfe15f7_122622606_image_47f443942d363e06abd6744788248e6e_b08515-6b4e78a74a5d65ed569702da9b30b1c5-3fc05e.png'
-              alt=''
-            /> */}
           </div>
         </div>
       )}
@@ -156,12 +162,12 @@ const Markets = ({
 };
 
 Markets.propTypes = {
-  market: PropTypes.object.isRequired
+  market: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   market: state.market,
-  filtered: state.market.filtered
+  filtered: state.market.filtered,
 });
 
 export default connect(mapStateToProps, { getMarkets, filterMarkets })(Markets);
