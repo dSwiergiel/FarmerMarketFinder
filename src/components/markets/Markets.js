@@ -30,7 +30,7 @@ const Markets = ({
 
     filterMarkets(
       markets,
-      Array.from(checkedBoxes, (x) => x.name)
+      Array.from(checkedBoxes, (x) => x.name) // pass array of just checked checkbox names
     );
   };
 
